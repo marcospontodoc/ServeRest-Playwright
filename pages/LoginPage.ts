@@ -27,8 +27,8 @@ export class LoginPage {
     async isEmailInvalid() {
     return await this.emailInput.evaluate((element: HTMLInputElement) => {
     return element.validity.typeMismatch;
-  });
-}
+    });
+    }
 
     async login(email: string, password: string) {
         await this.emailInput.fill(email);
