@@ -26,4 +26,19 @@ test.describe('Login Tests', () => {
         await expect(loginPage.errorMessage).toBeVisible();
     });
 
+    test('should show error message when email is missing', async ({ testUser, page }) => {
+        await loginPage.login('', testUser.password);
+        await expect(loginPage.missingEmailErrorMessage).toBeVisible();
+    });
+
+    test('should show error message when password is missing', async ({ testUser, page }) => {
+        await loginPage.login(testUser.email, '');
+        await expect(loginPage.missingPasswordErrorMessage).toBeVisible();
+    });
+
+    test('should show error message when email is invalid', async ({ testUser, page }) => {
+        await loginPage.login('invalidemail', testUser.password);
+        expect(await loginPage.isEmailInvalid()).toBe(true);
+    });
+
 });
