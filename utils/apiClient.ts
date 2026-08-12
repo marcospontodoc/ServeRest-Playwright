@@ -10,9 +10,12 @@ export async function createUser(user: {
         baseURL: process.env.API_URL
     });
 
-    const response = await apiContext.post('/usuarios', {
-        data: user
-    });
-
-    return response;
+    try {
+        const response = await apiContext.post('/usuarios', {
+            data: user
+        });
+        return response;
+    } finally {
+        await apiContext.dispose();
+    }
 }
