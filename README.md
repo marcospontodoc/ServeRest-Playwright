@@ -16,6 +16,7 @@ E2E automated tests for the [ServeRest](https://front.serverest.dev) application
 - Login
 - User registration
 - Adding products to the shopping list
+- Product registration 
 
 > The shopping cart is currently out of scope because it is still under development.
 
